@@ -1,4 +1,11 @@
 <h2>{{employee.name|uppercase}}</h2>
-<div><span>id:</span>{{employee.id}}</div>
-<div><span>Name:</span>{{employee.name}}</div>
-<div><span>Surname:</span>{{employee.surname}}</div>
+<h2>My Employees</h2>
+<ul class="employee">
+<li *ngFor="let Employee of employee">
+    <button type="button" (click)="onselect(Employee)">
+    <span class="id">{{employee.id}}</span>
+    <span class="name">{{employee.name}}</span>
+    <span class="surname">{{employee.surname}}</span>
+    </button>
+</li>
+</ul>
