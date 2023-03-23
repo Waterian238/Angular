@@ -8,5 +8,10 @@ import { EMPLOYEES } from '../employee-list';
 })
 export class EmployeesComponent {
 
-Employee:EMPLOYEES;
+Employee=EMPLOYEES;
+selectedEmployee?:Employee;
+
+Onselect(employee:Employee):void{
+  this.selectedEmployee=employee;
+}
 }

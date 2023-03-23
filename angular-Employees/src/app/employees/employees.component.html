@@ -1,11 +1,18 @@
-<h2>{{employee.name|uppercase}}</h2>
 <h2>My Employees</h2>
-<ul class="employee">
-<li *ngFor="let Employee of employee">
-    <button type="button" (click)="onselect(Employee)">
-    <span class="id">{{employee.id}}</span>
-    <span class="name">{{employee.name}}</span>
-    <span class="surname">{{employee.surname}}</span>
+<ul class="employees">
+  <li *ngFor="let emp of Employee">
+    <button [class.selected]="emp === selectedEmployee" type="button" (click)="Onselect(emp)">
+      <span class="badge">{{emp.id}}</span> {{emp.name}} {{emp.surname}}
     </button>
-</li>
+  </li>
 </ul>
+
+<div *ngIf="selectedEmployee">
+  <h2>{{selectedEmployee.name | uppercase}} Details</h2>
+  <div>id: {{selectedEmployee.id}}</div>
+  <div>
+    <label for="hero-name">Employee name: </label>
+    <input id="hero-name" [(ngModel)]="selectedEmployee.name" placeholder="name">
+    <input id="employee-surname" [(ngModel)]="selectedEmployee.surname" placeholder="surname">
+  </div>
+</div>
